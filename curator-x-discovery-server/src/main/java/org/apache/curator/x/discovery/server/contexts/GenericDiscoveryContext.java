@@ -89,7 +89,7 @@ public class GenericDiscoveryContext<T> implements DiscoveryContext<T>, ContextR
         T payload;
         ObjectMapper mapper = new ObjectMapper();
         //noinspection unchecked
-        payload = (T)mapper.readValue(node.asText(), payloadType.getRawType());
+        payload = (T)mapper.readValue(mapper.treeAsTokens(node), payloadType.getRawType());
         return payload;
     }
 
