@@ -23,7 +23,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.curator.x.discovery.ProviderStrategy;
 import org.apache.curator.x.discovery.ServiceDiscovery;
 import org.apache.curator.x.discovery.server.rest.DiscoveryContext;
-
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 

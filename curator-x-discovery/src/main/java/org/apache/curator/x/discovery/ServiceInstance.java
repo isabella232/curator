@@ -21,7 +21,6 @@ package org.apache.curator.x.discovery;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
-
 import java.net.InetAddress;
 import java.util.Collection;
 import java.util.Map;

@@ -23,7 +23,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.Lists;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -57,8 +56,8 @@ public class JsonServiceNamesMarshaller implements MessageBodyReader<ServiceName
     public ServiceNames readFrom(Class<ServiceNames> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, String> httpHeaders, InputStream entityStream) throws IOException, WebApplicationException
     {
         List<String>        names = Lists.newArrayList();
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode tree = mapper.reader().readTree(entityStream);
+        ObjectMapper        mapper = new ObjectMapper();
+        JsonNode            tree = mapper.reader().readTree(entityStream);
         for ( int i = 0; i < tree.size(); ++i )
         {
             JsonNode node = tree.get(i);
@@ -83,10 +82,10 @@ public class JsonServiceNamesMarshaller implements MessageBodyReader<ServiceName
     public void writeTo(ServiceNames serviceNames, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException
     {
         ObjectMapper        mapper = new ObjectMapper();
-        ArrayNode arrayNode = mapper.createArrayNode();
+        ArrayNode           arrayNode = mapper.createArrayNode();
         for ( String name : serviceNames.getNames() )
         {
-            ObjectNode node = mapper.createObjectNode();
+            ObjectNode      node = mapper.createObjectNode();
             node.put("name", name);
             arrayNode.add(node);
         }

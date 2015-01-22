@@ -21,7 +21,6 @@ package org.apache.curator.x.discovery.details;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.curator.x.discovery.ServiceInstance;
-
 import java.io.ByteArrayOutputStream;
 
 /**
@@ -30,9 +29,9 @@ import java.io.ByteArrayOutputStream;
  */
 public class JsonInstanceSerializer<T> implements InstanceSerializer<T>
 {
-    private final ObjectMapper mapper;
+    private final ObjectMapper      mapper;
     private final Class<T>          payloadClass;
-    private final JavaType type;
+    private final JavaType          type;
 
     /**
      * @param payloadClass used to validate payloads when deserializing

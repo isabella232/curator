@@ -25,7 +25,6 @@ import org.apache.curator.x.discovery.ServiceInstance;
 import org.apache.curator.x.discovery.ServiceInstanceBuilder;
 import org.apache.curator.x.discovery.ServiceType;
 import org.apache.curator.x.discovery.server.rest.DiscoveryContext;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -139,7 +138,7 @@ public class JsonServiceInstanceMarshaller<T> implements MessageBodyReader<Servi
     {
         try
         {
-            ObjectMapper mapper = new ObjectMapper();
+            ObjectMapper                mapper = new ObjectMapper();
             JsonNode                    node = mapper.reader().readTree(entityStream);
             return readInstance(node, context);
         }
