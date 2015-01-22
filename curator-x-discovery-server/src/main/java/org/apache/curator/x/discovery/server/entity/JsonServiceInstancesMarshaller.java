@@ -18,13 +18,14 @@
  */
 package org.apache.curator.x.discovery.server.entity;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.collect.Lists;
 import org.apache.curator.x.discovery.ServiceInstance;
 import org.apache.curator.x.discovery.server.rest.DiscoveryContext;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.ObjectNode;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -79,8 +80,8 @@ public class JsonServiceInstancesMarshaller<T> implements MessageBodyReader<Serv
         try
         {
             List<ServiceInstance<T>>    instances = Lists.newArrayList();
-            ObjectMapper                mapper = new ObjectMapper();
-            JsonNode                    tree = mapper.reader().readTree(entityStream);
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode tree = mapper.reader().readTree(entityStream);
             for ( int i = 0; i < tree.size(); ++i )
             {
                 JsonNode                    node = tree.get(i);
